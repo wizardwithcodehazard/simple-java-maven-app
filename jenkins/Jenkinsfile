@@ -44,8 +44,8 @@ pipeline {
                 withSonarQubeEnv('SonarQube') {
                     bat '''
                         mvn sonar:sonar ^
-                        -Dsonar.projectKey=simple-java-maven-app ^
-                        -Dsonar.projectName=simple-java-maven-app
+                        -Dsonar.projectKey=jenkins-sonar ^
+                        -Dsonar.projectName=jenkins-sonar
                     '''
                 }
             }
@@ -97,7 +97,7 @@ ${env.BUILD_URL}
 """,
                 to: env.EMAIL_TO,
                 attachLog: true
-            )
+            ) 
         }
 
         unstable {
